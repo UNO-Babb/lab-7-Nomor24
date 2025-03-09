@@ -1,4 +1,13 @@
 #NumberTests.py
+def nthprime(n):
+  """Returns the nth prime number"""
+  count = 0
+  num = 1
+  while count < n:
+    num += 1
+    if isPrime(num):
+      count += 1
+  return num
 
 def isThreeOrFive(n):
   """Returns boolean determination if number is multiple of 3 or 5"""
@@ -8,9 +17,24 @@ def isThreeOrFive(n):
   else:
     return False
 
+def getFactors(num):
+  """returns a list of all factors of a given integer"""
+  factors = []
+  for f in range(1, num // 2 + 1):
+    if num % f == 0:
+      factors.append(f)
+
+  return factors
+
 def isPrime(p):
   """Returns boolean (True/False) if the value given is prime."""
-
+  if p == 2:
+    return True
+  if isEven(p):
+    return False
+  for div in range(3, p // 2, 2):
+    if p % div == 0:
+      return False
   return True
 
 def isEven(n):
